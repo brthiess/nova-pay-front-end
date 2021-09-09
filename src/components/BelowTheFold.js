@@ -7,27 +7,41 @@ export default class BelowTheFold extends React.Component {
         <div className="below-the-fold-sub-container">
           <ul className="features-list">
             <li className="features-list-item">
-              <span className="main-point">Secure</span>
+              <span className="feature-icon">
+                <i className="fa fa-lock"></i>
+              </span>
+              <span className="feature-main-point">Secure</span>
               <span className="features-list-item-text">
                 No fees to accept payment
               </span>
             </li>
             <li className="features-list-item">
-              <span className="main-point">Simple</span>
+              <span className="feature-icon">
+                <i className="fa fa-thumbs-up"></i>
+              </span>
+              <span className="feature-main-point">Simple</span>
               <span className="features-list-item-text">
                 Completely open source and transparent
               </span>
             </li>
             <li className="features-list-item">
-              <span className="main-point">Accepts many payments</span>
+              <span className="feature-icon">
+                <i className="fa fa-credit-card"></i>
+              </span>
+              <span className="feature-main-point">Accepts many payments</span>
               <span className="features-list-item-text">
                 Easy to start using for merchants
               </span>
             </li>
           </ul>
-          <div className="learn-more-container">
-            <a href="/learn-more">Learn more</a>
-          </div>
+        </div>
+        <div className="below-the-fold-sub-container-2">
+          <h3 className="cta-title">Ready to get started?</h3>
+          <p className="cta-text">
+            Explore Nova Pay, or create an account instantly and start
+            accepting payments.
+          </p>
+          <a className="cta-button" href="/sign-up">Start Now <i className="fa fa-angle-right"></i></a>
         </div>
       </div>
     );
