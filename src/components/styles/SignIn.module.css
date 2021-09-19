@@ -1,0 +1,74 @@
+.container {
+    padding: 100px 0;
+    display: flex;
+    justify-content: center;
+}
+.signInContainer {
+    width: 600px;
+    max-width: 100%;
+    box-shadow: 1px 2px 2px 2px rgba(0,0,0,.3);
+}
+.tabContainer {
+    background: #eee;
+}
+.tabList {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    height: 80px;
+}
+.tabItem {
+    width: 100%;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.activeTab {
+    background: white;
+}
+.inputContainer {
+    border-bottom: 1px solid #ccc;
+    height: 80px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-flow: column;
+    padding: 0 20px;
+    margin-bottom: 20px;
+}
+.inputContainerContainer {
+    padding: 20px 0;
+}
+.input {
+    border: none;
+    height: 60%;
+}
+.input:focus-visible {
+    outline: none;
+}
+.bottom {
+    display: flex;
+    align-items: center;
+    padding: 0px 20px;
+}
+.forgotPassword {
+    width: 50%;
+}
+.buttonContainer {
+    width: 50%;
+}
+.button {
+    background: green;
+    box-shadow: none;
+    border:none;
+    border-radius: 5px;
+    width: 100%;
+    color: white;
+    height: 60px;
+    font-size: 22px;
+    cursor: pointer;
+}
