@@ -5,6 +5,10 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import store from "./app/store";
 import { Provider } from "react-redux";
+import makeServer from "./server"; //Comment out in production
+
+
+makeServer();  //comment out in production
 
 ReactDOM.render(
   <React.StrictMode>

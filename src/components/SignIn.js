@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./styles/SignIn.module.css";
 import axios from "axios";
-import store from '../app/store';
+import store from "../app/store";
 
 export default class SignIn extends React.Component {
   constructor(props) {
@@ -38,20 +38,20 @@ export default class SignIn extends React.Component {
   };
 
   signIn = async () => {
-    let signInResult = await axios.post("http://localhost:3000/user/sign-in", {
+    let signInResult = await axios.post("/user/sign-in", {
       email: this.state.email,
       password: this.state.password,
     });
     console.log(signInResult);
-    store.dispatch({type:'user/updateUsername', payload: 'blah'})    
-    console.log('Initial state: ', store.getState())
+    store.dispatch({ type: "user/updateUsername", payload: "blah" });
+    console.log("Initial state: ", store.getState());
   };
 
   createAccount = async () => {
-    let createAccountResult = await axios.post(
-      "http://localhost:3000/user/create-account",
-      { email: this.state.email, password: this.state.password }
-    );
+    let createAccountResult = await axios.post("/user/create-account", {
+      email: this.state.email,
+      password: this.state.password,
+    });
     console.log(createAccountResult);
   };
 
