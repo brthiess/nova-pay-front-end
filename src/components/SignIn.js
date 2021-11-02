@@ -42,9 +42,14 @@ export default class SignIn extends React.Component {
       email: this.state.email,
       password: this.state.password,
     });
-    console.log(signInResult);
-    store.dispatch({ type: "user/updateUsername", payload: "blah" });
-    console.log("Initial state: ", store.getState());
+    
+    if (signInResult.data.success) {
+      store.dispatch({ type: "user/updateUsername", payload: this.state.email });
+    }
+    else {
+      alert ("Incorrect password");
+    }
+    
   };
 
   createAccount = async () => {

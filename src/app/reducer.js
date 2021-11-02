@@ -1,5 +1,5 @@
 const initialState = {
-    username: "test"
+    username: null
   }
 
 // Use the initialState as a default value

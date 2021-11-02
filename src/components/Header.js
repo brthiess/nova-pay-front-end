@@ -1,7 +1,19 @@
 import React from "react";
 import Logo from "./Logo";
 import { Link } from "react-router-dom";
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
+
+function UserInfoSignedOut() {
+  return (
+    <Link to="/sign-in">Sign In</Link>
+  )
+}
+
+function UserInfoSignedIn(props) {
+  return (
+    <p>{props.username}</p>
+  )
+}
 
 class Header extends React.Component {
   render() {
@@ -20,8 +32,8 @@ class Header extends React.Component {
           </ul>
         </nav>
         <div className="sign-in-nav-link">
-          <Link to="/sign-in">Sign In</Link>
-          {this.props.username}
+          {this.props.username && this.props.username.length > 0 ? <UserInfoSignedIn username={this.props.username} ></UserInfoSignedIn> : <UserInfoSignedOut></UserInfoSignedOut>}
+
         </div>
       </div>
     );
@@ -31,7 +43,7 @@ class Header extends React.Component {
 
 const mapStateToProps = state => {
   return {
-      username: state.username
+    username: state.username
   }
 }
 
