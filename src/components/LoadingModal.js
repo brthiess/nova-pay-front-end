@@ -1,11 +1,23 @@
 import React from "react";
+import { connect } from 'react-redux'
+import styles from "./styles/LoadingModal.module.css";
 
-export default class LoadingModal extends React.Component {
+class LoadingModal extends React.Component {
   render() {
     return (
-      <div className="loading-modal-container">
-        <div className="loading-modal">Loading...</div>
+      <div className={(this.props.showModal ? "" : styles.hidden + " ") + styles.loadingDarkenedBackground}>
+        <div className={styles.loadingModalContainer}>
+          <div className="loading-modal">Loading...</div>
+        </div>
       </div>
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    showModal: state.showModal
+  }
+}
+
+export default connect(mapStateToProps)(LoadingModal)

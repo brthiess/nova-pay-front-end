@@ -38,26 +38,35 @@ export default class SignIn extends React.Component {
   };
 
   signIn = async () => {
+    store.dispatch({type:"modal/showModal", payload: true});
     let signInResult = await axios.post("/user/sign-in", {
       email: this.state.email,
       password: this.state.password,
     });
-    
+    store.dispatch({type:"modal/showModal", payload: false});
     if (signInResult.data.success) {
       store.dispatch({ type: "user/updateUsername", payload: this.state.email });
+      alert("Signed in!");
     }
     else {
-      alert ("Incorrect password");
+      alert("Incorrect password");
     }
-    
   };
 
   createAccount = async () => {
+    store.dispatch({type:"modal/showModal", payload: true});
     let createAccountResult = await axios.post("/user/create-account", {
       email: this.state.email,
       password: this.state.password,
     });
-    console.log(createAccountResult);
+    store.dispatch({type:"modal/showModal", payload: false});
+    if (createAccountResult.data.success) {
+      store.dispatch({ type: "user/updateUsername", payload: this.state.email });
+      alert("Account created!");
+    }
+    else {
+      alert("Unable to create account");
+    }
   };
 
   render() {
@@ -156,7 +165,7 @@ export default class SignIn extends React.Component {
                 By creating an account you agree to our Terms & Privacy
               </div>
               <div className={styles.buttonContainer}>
-                <button className={styles.button}>Sign Up</button>
+                <button className={styles.button} onClick={this.createAccount}>Sign Up</button>
               </div>
             </div>
           </div>

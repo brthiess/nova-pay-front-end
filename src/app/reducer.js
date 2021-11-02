@@ -1,6 +1,7 @@
 const initialState = {
-    username: null
-  }
+  username: null,
+  showModal: false
+}
 
 // Use the initialState as a default value
 export default function appReducer(state = initialState, action) {
@@ -13,6 +14,14 @@ export default function appReducer(state = initialState, action) {
         // that has all the existing state data
         ...state,
         username: action.payload
+      }
+    }
+    case 'modal/showModal': {
+      // We need to return a new state object
+      return {
+        // that has all the existing state data
+        ...state,
+        showModal: action.payload
       }
     }
     default:
