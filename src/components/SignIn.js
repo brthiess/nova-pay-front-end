@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./styles/SignIn.module.css";
 import axios from "axios";
 import store from "../app/store";
+import { setSecureId, setEmail } from "../ajax/user";
 
 export default class SignIn extends React.Component {
   constructor(props) {
@@ -25,7 +26,7 @@ export default class SignIn extends React.Component {
     });
   };
 
-  handleUsernameChange = (e) => {
+  handleEmailChange = (e) => {
     this.setState({
       email: e.target.value,
     });
@@ -38,15 +39,18 @@ export default class SignIn extends React.Component {
   };
 
   signIn = async () => {
-    store.dispatch({type:"modal/showModal", payload: true});
+    store.dispatch({type:"modal/showLoading", payload: true});
     let signInResult = await axios.post("/user/sign-in", {
       email: this.state.email,
       password: this.state.password,
     });
-    store.dispatch({type:"modal/showModal", payload: false});
-    if (signInResult.data.success) {
-      store.dispatch({ type: "user/updateUsername", payload: this.state.email });
+    store.dispatch({type:"modal/showLoading", payload: false});
+    var resultDto = signInResult.data;
+    if (resultDto.success) {
       alert("Signed in!");
+      setSecureId(resultDto.result.secureId);
+      setEmail(resultDto.result.email);
+      this.props.history.push('/dashboard');
     }
     else {
       alert("Incorrect password");
@@ -54,14 +58,14 @@ export default class SignIn extends React.Component {
   };
 
   createAccount = async () => {
-    store.dispatch({type:"modal/showModal", payload: true});
+    store.dispatch({type:"modal/showLoading", payload: true});
     let createAccountResult = await axios.post("/user/create-account", {
       email: this.state.email,
       password: this.state.password,
     });
-    store.dispatch({type:"modal/showModal", payload: false});
+    store.dispatch({type:"modal/showLoading", payload: false});
     if (createAccountResult.data.success) {
-      store.dispatch({ type: "user/updateUsername", payload: this.state.email });
+      store.dispatch({ type: "user/updateEmail", payload: this.state.email });
       alert("Account created!");
     }
     else {
@@ -113,7 +117,7 @@ export default class SignIn extends React.Component {
                 type="email"
                 placeholder="example@example.com"
                 className={styles.input}
-                onChange={this.handleUsernameChange}
+                onChange={this.handleEmailChange}
               ></input>
             </div>
             <div className={styles.inputContainer}>
@@ -148,7 +152,7 @@ export default class SignIn extends React.Component {
                 type="email"
                 placeholder="example@example.com"
                 className={styles.input}
-                onChange={this.handleUsernameChange}
+                onChange={this.handleEmailChange}
               ></input>
             </div>
             <div className={styles.inputContainer}>

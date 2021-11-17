@@ -1,7 +1,8 @@
 const initialState = {
-  username: null,
+  email: null,
   isSignedIn: false,
-  showModal: false,
+  showLoading: false,
+  showDashboardHeader: false,
 };
 
 // Use the initialState as a default value
@@ -9,12 +10,12 @@ export default function appReducer(state = initialState, action) {
   // The reducer normally looks at the action type field to decide what happens
   switch (action.type) {
     // Do something here based on the different types of actions
-    case "user/updateUsername": {
+    case "user/updateEmail": {
       // We need to return a new state object
       return {
         // that has all the existing state data
         ...state,
-        username: action.payload,
+        email: action.payload,
       };
     }
     case "user/updateIsSignedIn": {
@@ -25,12 +26,18 @@ export default function appReducer(state = initialState, action) {
         isSignedIn: action.payload,
       };
     }
-    case "modal/showModal": {
+    case "modal/showLoading": {
       // We need to return a new state object
       return {
         // that has all the existing state data
         ...state,
-        showModal: action.payload,
+        showLoading: action.payload,
+      };
+    }
+    case "header/showDashboardHeader": {
+      return {
+        ...state,
+        showDashboardHeader: action.payload,
       };
     }
     default:

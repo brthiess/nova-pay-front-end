@@ -5,7 +5,7 @@ class DashboardHeader extends React.Component {
     render() {
         return (
             <div className="dashboard-header-container">
-                {"Welcome" + this.props.username}
+                {"Welcome" + this.props.email}
             </div>
         )
     }
@@ -13,7 +13,7 @@ class DashboardHeader extends React.Component {
 
 const mapStateToProps = state => {
     return {
-      username: state.username
+      email: state.email
     }
   }
   

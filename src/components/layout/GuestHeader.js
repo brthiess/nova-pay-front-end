@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "./Logo";
+import Logo from "../Logo";
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux'
 
@@ -11,11 +11,11 @@ function UserInfoSignedOut() {
 
 function UserInfoSignedIn(props) {
   return (
-    <p>{props.username}</p>
+    <p>{props.email}</p>
   )
 }
 
-class Header extends React.Component {
+class GuestHeader extends React.Component {
   render() {
     return (
       <div className="header-container">
@@ -32,7 +32,7 @@ class Header extends React.Component {
           </ul>
         </nav>
         <div className="sign-in-nav-link">
-          {this.props.username && this.props.username.length > 0 ? <UserInfoSignedIn username={this.props.username} ></UserInfoSignedIn> : <UserInfoSignedOut></UserInfoSignedOut>}
+          {this.props.email && this.props.email.length > 0 ? <UserInfoSignedIn email={this.props.email} ></UserInfoSignedIn> : <UserInfoSignedOut></UserInfoSignedOut>}
 
         </div>
       </div>
@@ -43,8 +43,8 @@ class Header extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    username: state.username
+    email: state.email
   }
 }
 
-export default connect(mapStateToProps)(Header)
+export default connect(mapStateToProps)(GuestHeader)

@@ -1,20 +1,35 @@
 import axios from "axios";
 import Cookies from "js-cookie";
+import store from "../app/store";
 
-
-export async function getUsername() {
-    return Cookies.get("email");
+export function getEmail() {
+  return Cookies.get("email");
 }
 
+export function setEmail(value) {
+  Cookies.set("email", value);
+  store.dispatch({ type: "user/updateEmail", payload: value });
+}
+
+export function getSecureId() {
+  return Cookies.get("secureId");
+}
+
+export function setSecureId(value) {
+  Cookies.set("secureId", value)
+}
+
+
+
 export async function isSignedIn() {
-    console.log("hi");
-    let signInResult = await axios.get("/user/get-user-info", {
-      email: "test@test.com",
-      secureId: "abc123",
-    });
-    if (signInResult.data.success) {
-      return true;
-    }
-    return false;
+  let signInResult = await axios.get("/user/get-user-info", {
+    params: {
+      email: getEmail(),
+      secureId: getSecureId(),
+    },
+  });
+  if (signInResult.data.success) {
+    return true;
   }
-  
+  return false;
+}
