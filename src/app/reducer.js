@@ -2,7 +2,7 @@ const initialState = {
   email: null,
   isSignedIn: false,
   showLoading: false,
-  showDashboardHeader: false,
+  onDashboard: false,
 };
 
 // Use the initialState as a default value
@@ -34,10 +34,10 @@ export default function appReducer(state = initialState, action) {
         showLoading: action.payload,
       };
     }
-    case "header/showDashboardHeader": {
+    case "navigation/onDashboard": {
       return {
         ...state,
-        showDashboardHeader: action.payload,
+        onDashboard: action.payload,
       };
     }
     default:

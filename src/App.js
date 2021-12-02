@@ -27,7 +27,7 @@ export default class App extends React.Component {
           <Switch>
             <Route exact path="/" component={Home}></Route>
             <Route exact path="/sign-in/" component={SignIn}></Route>
-            <Route exact path="/dashboard/" component={Dashboard}></Route>
+            <Route path="/dashboard/" component={Dashboard}></Route>
           </Switch>
         </BrowserRouter>
         <Footer></Footer>

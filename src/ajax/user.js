@@ -22,7 +22,7 @@ export function setSecureId(value) {
 
 
 export async function isSignedIn() {
-  let signInResult = await axios.get("/user/get-user-info", {
+  let signInResult = await axios.get("/user", {
     params: {
       email: getEmail(),
       secureId: getSecureId(),

@@ -1,0 +1,25 @@
+.dashboardContainer {
+    height: 100%;
+    flex-grow: 1;
+}
+.dashboardHeaderContainer {
+    background: #122341;
+}
+.navigationListItem {
+    color: white;
+}
+.dashboardBannerContainer {
+    margin-top: 50px;
+    margin-bottom: auto;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+}
+.merchantContainer {
+    box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.3);
+    margin: 20px 0px;
+    padding: 20px;
+    cursor: pointer;
+}

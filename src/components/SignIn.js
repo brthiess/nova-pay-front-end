@@ -40,7 +40,7 @@ export default class SignIn extends React.Component {
 
   signIn = async () => {
     store.dispatch({type:"modal/showLoading", payload: true});
-    let signInResult = await axios.post("/user/sign-in", {
+    let signInResult = await axios.post("/auth/sign-in", {
       email: this.state.email,
       password: this.state.password,
     });
@@ -59,7 +59,7 @@ export default class SignIn extends React.Component {
 
   createAccount = async () => {
     store.dispatch({type:"modal/showLoading", payload: true});
-    let createAccountResult = await axios.post("/user/create-account", {
+    let createAccountResult = await axios.post("/user", {
       email: this.state.email,
       password: this.state.password,
     });
