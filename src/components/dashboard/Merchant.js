@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "../styles/Merchant.module.css";
 import { getMerchant } from "../../ajax/merchant";
 
 export default class Merchant extends React.Component {
@@ -17,6 +18,15 @@ export default class Merchant extends React.Component {
   }
 
   render() {
-    return <div>{this.state.merchant.name}</div>;
+    return (
+      <div className={styles.merchantContainer}>
+        <div className={styles.merchantName}>{this.state.merchant.name}</div>
+        <div className={styles.merchantLogo}>
+          <img alt={this.state.merchant.name + " Logo"}src={this.state.merchant.logo} />
+        </div>
+        <div className={styles.merchantSales}>{this.state.merchant.sales}</div>
+        <div className={styles.transactionNumbers}>{this.state.merchant.transactionNumbers}</div>
+      </div>
+    );
   }
 }

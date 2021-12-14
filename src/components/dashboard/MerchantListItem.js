@@ -7,7 +7,7 @@ export default function MerchantListItem(props) {
 
   return (
     <div className={styles.merchantContainer}>
-      <Link to={url + props.merchantId}>Rendering with React</Link>
+      <Link to={url + '/' + props.merchantId} className={styles.merchantLink}>Rendering with React</Link>
       <div className={styles.merchantName}>{props.name}</div>
       <div className={styles.merchantLogo}>
         <img src={props.logo} alt={props.name + " Logo"}></img>

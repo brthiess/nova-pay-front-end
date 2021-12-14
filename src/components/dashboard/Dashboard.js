@@ -1,6 +1,7 @@
 import React from "react";
 import DashboardBanner from "./DashboardBanner";
 import Merchants from "./Merchants";
+import Account from "./Account";
 import store from "../../app/store";
 import styles from "../styles/Dashboard.module.css";
 import { Route, Switch, useRouteMatch } from "react-router-dom";
@@ -18,6 +19,7 @@ export default function Dashboard() {
       <Switch>
         <Route exact path={path} component={DashboardBanner}></Route>
         <Route exact path={`${path}merchants`} component={Merchants}></Route>
+        <Route exact path={`${path}account`} component={Account}></Route>
         <Route
           path={`${path}merchants/:merchantId`}
           component={Merchant}

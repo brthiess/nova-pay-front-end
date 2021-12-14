@@ -43,6 +43,14 @@ export default function mirage() {
         }
         return { success: false };
       });
+      this.get("/account", (schema, request) => {
+        let email = request.queryParams.email;
+        let secureId = request.queryParams.secureId;
+        if (email === "test@test.com" && secureId === "123abc") {
+          return { email: email, joinDate: "December 5th, 2021", fullName: "John Doe", notifications: "none" };
+        }
+        return { success: false };
+      });
       this.get("/merchant", (schema, request) => {
         let merchants = [
           {
@@ -79,7 +87,7 @@ export default function mirage() {
             if (merchant.length > 0) {
               return merchant[0];
             }
-            return {}
+            return {};
           } else {
             return merchants;
           }
