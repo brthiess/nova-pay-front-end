@@ -43,11 +43,58 @@ export default function mirage() {
         }
         return { success: false };
       });
+      this.get("/account-overview", (schema, request) => {
+        let email = request.queryParams.email;
+        let secureId = request.queryParams.secureId;
+        if (email === "test@test.com" && secureId === "123abc") {
+          return {
+            labels: [
+              "Jan",
+              "Feb",
+              "Mar",
+              "Apr",
+              "May",
+              "Jun",
+              "Jul",
+              "Aug",
+              "Sep",
+              "Oct",
+              "Nov",
+              "Dec",
+            ],
+            datasets: [
+              {
+                id: 1,
+                label: "Total (XLM)",
+                data: [
+                  500, 600, 750, 660, 600, 200, 250, 320, 300, 370, 400, 60,
+                ],
+              },
+              {
+                id: 2,
+                label: "Merchant 1",
+                data: [300, 44, 12, 300, 44, 12, 100, 44, 12, 120, 44, 12],
+              },
+              {
+                id: 3,
+                label: "Merchant 2",
+                data: [110, 39, 92, 90, 84, 82, 80, 64, 88, 110, 130, 12],
+              },
+            ],
+          };
+        }
+        return { success: false };
+      });
       this.get("/account", (schema, request) => {
         let email = request.queryParams.email;
         let secureId = request.queryParams.secureId;
         if (email === "test@test.com" && secureId === "123abc") {
-          return { email: email, joinDate: "December 5th, 2021", fullName: "John Doe", notifications: "none" };
+          return {
+            email: email,
+            joinDate: "December 5th, 2021",
+            fullName: "John Doe",
+            notifications: "none",
+          };
         }
         return { success: false };
       });
