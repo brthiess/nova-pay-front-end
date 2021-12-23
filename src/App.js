@@ -4,6 +4,7 @@ import Footer from "./components/layout/Footer";
 import SignIn from "./components/SignIn";
 import Dashboard from "./components/dashboard/Dashboard";
 import LoadingModal from "./components/LoadingModal";
+import Documentation from "./components/documentation/Documentation";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import React from "react";
 import { isSignedIn, getEmail } from "./ajax/user";
@@ -28,9 +29,11 @@ export default class App extends React.Component {
             <Route exact path="/" component={Home}></Route>
             <Route exact path="/sign-in/" component={SignIn}></Route>
             <Route path="/dashboard/" component={Dashboard}></Route>
+            <Route path="/docs/:routeName?" component={Documentation}></Route>
           </Switch>
+          <Footer></Footer>
         </BrowserRouter>
-        <Footer></Footer>
+        
         <LoadingModal></LoadingModal>
       </div>
     );

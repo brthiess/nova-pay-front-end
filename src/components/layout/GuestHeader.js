@@ -1,18 +1,14 @@
 import React from "react";
 import Logo from "../Logo";
 import { Link } from "react-router-dom";
-import { connect } from 'react-redux'
+import { connect } from "react-redux";
 
 function UserInfoSignedOut() {
-  return (
-    <Link to="/sign-in">Sign In</Link>
-  )
+  return <Link to="/sign-in">Sign In</Link>;
 }
 
 function UserInfoSignedIn(props) {
-  return (
-    <p>{props.email}</p>
-  )
+  return <p>{props.email}</p>;
 }
 
 class GuestHeader extends React.Component {
@@ -26,25 +22,33 @@ class GuestHeader extends React.Component {
         </div>
         <nav>
           <ul className="navigation-list">
-            <li className="navigation-list-item">Developers</li>
-            <li className="navigation-list-item">Company</li>
-            <li className="navigation-list-item">Pricing</li>
+            <Link className="navigation-list-item" to="/docs/">
+              Developers
+            </Link>
+            <Link className="navigation-list-item" to="/company/">
+              Company
+            </Link>
+            <Link className="navigation-list-item" to="/pricing/">
+              Pricing
+            </Link>
           </ul>
         </nav>
         <div className="sign-in-nav-link">
-          {this.props.email && this.props.email.length > 0 ? <UserInfoSignedIn email={this.props.email} ></UserInfoSignedIn> : <UserInfoSignedOut></UserInfoSignedOut>}
-
+          {this.props.email && this.props.email.length > 0 ? (
+            <UserInfoSignedIn email={this.props.email}></UserInfoSignedIn>
+          ) : (
+            <UserInfoSignedOut></UserInfoSignedOut>
+          )}
         </div>
       </div>
     );
   }
 }
 
-
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    email: state.email
-  }
-}
+    email: state.email,
+  };
+};
 
-export default connect(mapStateToProps)(GuestHeader)
+export default connect(mapStateToProps)(GuestHeader);
