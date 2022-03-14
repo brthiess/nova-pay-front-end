@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import GuestHeader from "./GuestHeader";
 import DashboardHeader from "../dashboard/DashboardHeader";
+import DocsHeader from "./DocsHeader";
 
 
 class Header extends React.Component {
@@ -10,7 +11,7 @@ class Header extends React.Component {
       <div className="header-container-container">
         {this.props.onDashboard ? (
           <DashboardHeader></DashboardHeader>
-        ) : (
+        ) : this.props.onDocs ? (<DocsHeader></DocsHeader>) : (
           <GuestHeader></GuestHeader>
         )}
       </div>

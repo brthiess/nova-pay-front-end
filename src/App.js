@@ -10,6 +10,7 @@ import React from "react";
 import { isSignedIn, getEmail } from "./ajax/user";
 import store from "./app/store";
 
+
 export default class App extends React.Component {
   async componentDidMount() {
     
@@ -21,10 +22,11 @@ export default class App extends React.Component {
     }
   }
   render() {
+    
     return (
       <div className="app">
         <BrowserRouter>
-          <Header></Header>
+          <Header onDocs={window.location.pathname.indexOf("docs") > 0}></Header>
           <Switch>
             <Route exact path="/" component={Home}></Route>
             <Route exact path="/sign-in/" component={SignIn}></Route>
