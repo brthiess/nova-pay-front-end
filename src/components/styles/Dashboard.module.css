@@ -1,25 +1,69 @@
 .dashboardContainer {
-    height: 100%;
-    flex-grow: 1;
+  height: 100%;
+  flex-grow: 1;
 }
 .dashboardHeaderContainer {
-    background: #122341;
+  background: #122341;
 }
 .navigationListItem {
-    color: white;
+  color: white;
 }
 .dashboardBannerContainer {
-    margin-top: 50px;
-    margin-bottom: auto;
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 20px;
+  margin-top: 50px;
+  margin-bottom: auto;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 20px;
 }
 .merchantContainer {
-    box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.3);
-    margin: 20px 0px;
-    padding: 20px;
-    cursor: pointer;
+  box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  position: relative;
+  display: grid;
+  max-width: 500px;
+  margin: 20px 0;
+  grid-template-columns: 100px auto;
+}
+.merchantLink {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.merchantLogo {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 4;
+  width: 100px;
+}
+.merchantLogo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.merchantName {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  font-size: 28px;
+}
+.merchantSales {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  font-size: 20px;
+}
+.merchantTransactionNumbers {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 3;
+  grid-row-end: 4;
+  font-size: 20px;
 }

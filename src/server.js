@@ -102,21 +102,21 @@ export default function mirage() {
         let merchants = [
           {
             name: "Merchant 1",
-            logo: "merchant1.jpg",
+            logo: "merchant1.png",
             sales: 9553,
             transactionNumbers: 1002,
             merchantId: 34,
           },
           {
             name: "Merchant 2",
-            logo: "merchant2.jpg",
+            logo: "merchant1.png",
             sales: 1053667,
             transactionNumbers: 10302,
             merchantId: 38,
           },
           {
             name: "Merchant 3",
-            logo: "merchant3.jpg",
+            logo: "merchant1.png",
             sales: 107,
             transactionNumbers: 12,
             merchantId: 9990,

@@ -1,3 +1,9 @@
+.merchantWrapper {
+}
 .merchantContainer {
-    background: #eee;
+  background: #122759;
+}
+.merchantHeader {
+  max-width: 700px;
+  margin: auto;
 }
