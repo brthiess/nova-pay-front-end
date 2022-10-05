@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "../styles/Merchant.module.css";
 import { getMerchant } from "../../ajax/merchant";
+import { send } from "../../ajax/transfer";
 
 export default class Merchant extends React.Component {
   constructor() {
@@ -17,8 +18,8 @@ export default class Merchant extends React.Component {
     });
   }
 
-  sendStellar() {
-    console.log("hi");
+  sendStellar(receivingAddresss, amount, memo) {
+    send(receivingAddresss, amount, memo);
   }
 
   render() {
