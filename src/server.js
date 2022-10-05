@@ -56,7 +56,7 @@ export default function mirage() {
         ) {
           return { success: true };
         }
-        return { success: false };
+        return { success: false, errorMessage: "Incorrect amount" };
       });
       this.get("/account-overview", (schema, request) => {
         let email = request.queryParams.email;

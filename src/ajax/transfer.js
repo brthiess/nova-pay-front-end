@@ -8,6 +8,5 @@ export async function send(receivingAddress, amount, memo) {
     secureId: Cookies.get("secureId"),
     memo: memo,
   });
-  console.log(sendResult);
   return sendResult;
 }
