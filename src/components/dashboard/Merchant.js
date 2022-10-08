@@ -68,15 +68,27 @@ export default class Merchant extends React.Component {
                 src={"/" + this.state.merchant.logo}
               />
             </div>
-            <div className={styles.merchantName}>
-              {this.state.merchant.name}
-            </div>
+            <div className={styles.merchantNameSalesContainer}>
+              <div className={styles.merchantName}>
+                Welcome, {this.state.merchant.name}!
+              </div>
 
-            <div className={styles.merchantSales}>
-              {this.state.merchant.sales}
+              <div className={styles.merchantSales}>
+                Balance:
+                <span className={styles.merchantSalesNumber}>
+                  {this.state.merchant.sales} XLM
+                </span>
+              </div>
+              <div className={styles.transactionNumbers}>
+                Number of Transactions:
+                <span className={styles.transactionNumbersNumber}>
+                  {this.state.merchant.transactionNumbers}
+                </span>
+              </div>
             </div>
-            <div className={styles.transactionNumbers}>
-              {this.state.merchant.transactionNumbers}
+            <div className={styles.transferReceiveContainer}>
+              <button className={styles.transferButton}>Transfer</button>
+              <button className={styles.receiveButton}>Receive</button>
             </div>
           </div>
         </div>

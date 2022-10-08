@@ -15,29 +15,22 @@ class DashboardHeader extends React.Component {
         </div>
         <nav>
           <ul className={"navigation-list " + styles.navigationList}>
-          <li className={"navigation-list-item " + styles.navigationListItem}>
-              <Link to="/dashboard"
-                className={styles.navigationListItemLink}
-              >
+            <li className={"navigation-list-item " + styles.navigationListItem}>
+              <Link to="/dashboard" className={styles.navigationListItemLink}>
                 Home
               </Link>
             </li>
             <li className={"navigation-list-item " + styles.navigationListItem}>
-              <Link to="/dashboard/merchants"
+              <Link
+                to="/dashboard/merchants"
                 className={styles.navigationListItemLink}
               >
                 Merchants
               </Link>
             </li>
             <li className={"navigation-list-item " + styles.navigationListItem}>
-            <Link to="/dashboard/reports"
-                className={styles.navigationListItemLink}
-              >
-                Reports
-              </Link>
-            </li>
-            <li className={"navigation-list-item " + styles.navigationListItem}>
-            <Link to="/dashboard/account"
+              <Link
+                to="/dashboard/account"
                 className={styles.navigationListItemLink}
               >
                 Account
