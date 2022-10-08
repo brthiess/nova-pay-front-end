@@ -92,51 +92,53 @@ export default class Merchant extends React.Component {
             </div>
           </div>
         </div>
-        <div className={styles.merchantTransfer}>
-          <div className={styles.transferHeader}>
-            <h3 className={styles.transferHeaderText}>Transfer</h3>
-            <p className={styles.transferText}>
-              Move your XLM to another wallet
-            </p>
+        <div className={styles.merchantTransferContainer}>
+          <div className={styles.merchantTransfer}>
+            <div className={styles.transferHeader}>
+              <h3 className={styles.transferHeaderText}>Transfer</h3>
+              <p className={styles.transferText}>
+                Move your XLM to another wallet
+              </p>
+            </div>
           </div>
-        </div>
-        <div className={styles.transferInputContainer}>
-          <div className={styles.inputContainer}>
-            <label>Amount</label>
-            <input
-              className={styles.amountInput}
-              placeholder="0.00"
-              value={this.state.transferAmount}
-              onChange={(evt) => this.updateAmount(evt)}
-            />
+          <div className={styles.transferInputContainer}>
+            <div className={styles.inputContainer}>
+              <label>Amount</label>
+              <input
+                className={styles.amountInput}
+                placeholder="0.00"
+                value={this.state.transferAmount}
+                onChange={(evt) => this.updateAmount(evt)}
+              />
+            </div>
+            <div className={styles.inputContainer}>
+              <label>Receiver</label>
+              <input
+                className={styles.receiverInput}
+                value={this.state.receivingAddress}
+                onChange={(evt) => this.updateReceivingAddress(evt)}
+              />
+            </div>
+            <div className={styles.inputContainer}>
+              <label>Memo</label>
+              <input
+                className={styles.memoInput}
+                value={this.state.memo}
+                onChange={(evt) => this.updateMemo(evt)}
+              />
+            </div>
+            <button
+              onClick={() =>
+                this.sendStellar(
+                  this.state.receivingAddress,
+                  this.state.transferAmount,
+                  this.state.memo
+                )
+              }
+            >
+              Send
+            </button>
           </div>
-          <div className={styles.inputContainer}>
-            <label>Receiver</label>
-            <input
-              className={styles.receiverInput}
-              value={this.state.receivingAddress}
-              onChange={(evt) => this.updateReceivingAddress(evt)}
-            />
-          </div>
-          <div className={styles.inputContainer}>
-            <label>Memo</label>
-            <input
-              className={styles.memoInput}
-              value={this.state.memo}
-              onChange={(evt) => this.updateMemo(evt)}
-            />
-          </div>
-          <button
-            onClick={() =>
-              this.sendStellar(
-                this.state.receivingAddress,
-                this.state.transferAmount,
-                this.state.memo
-              )
-            }
-          >
-            Send
-          </button>
         </div>
       </div>
     );

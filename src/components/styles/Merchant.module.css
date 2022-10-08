@@ -5,6 +5,7 @@
   padding: 20px;
   color: white;
   font-size: 19px;
+  margin-bottom: 40px;
 }
 .merchantHeader {
   max-width: 900px;
@@ -67,4 +68,41 @@ button {
 }
 .receiveButton {
   background: #159134;
+}
+.merchantTransferContainer {
+  max-width: 600px;
+  margin: auto;
+}
+.merchantTransfer {
+  background: linear-gradient(-204deg, #122759, #628aca 170%);
+  padding: 20px 30px;
+  color: white;
+}
+.transferInputContainer {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+h3 {
+  color: white;
+  font-size: 24px;
+  margin: 0;
+}
+.inputContainer {
+  display: flex;
+  flex-flow: column;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+input {
+  border-radius: 5px;
+  border: 1px solid #aaa;
+  height: 30px;
+  font-size: 18px;
+  margin-top: 3px;
+  width: 200px;
+}
+.transferInputContainer button {
+  background: green;
 }
