@@ -1,11 +1,16 @@
 import React from "react";
-import { connect } from 'react-redux'
+import { connect } from "react-redux";
 import styles from "./styles/LoadingModal.module.css";
 
 class LoadingModal extends React.Component {
   render() {
     return (
-      <div className={(this.props.showLoading ? "" : styles.hidden + " ") + styles.loadingDarkenedBackground}>
+      <div
+        className={
+          (this.props.showLoading ? "" : styles.hidden + " ") +
+          styles.loadingDarkenedBackground
+        }
+      >
         <div className={styles.loadingModalContainer}>
           <div className="loading-modal">Loading...</div>
         </div>
@@ -14,10 +19,10 @@ class LoadingModal extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    showLoading: state.showLoading
-  }
-}
+    showLoading: state.showLoading,
+  };
+};
 
-export default connect(mapStateToProps)(LoadingModal)
+export default connect(mapStateToProps)(LoadingModal);

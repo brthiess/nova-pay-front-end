@@ -43,21 +43,25 @@ export default function mirage() {
         }
         return { success: false };
       });
-      this.post("/send", (schema, request) => {
-        let params = JSON.parse(request.requestBody);
-        let secureId = params.secureId;
-        let receivingAddress = params.receivingAddress;
-        let amount = params.amount;
+      this.post(
+        "/send",
+        (schema, request) => {
+          let params = JSON.parse(request.requestBody);
+          let secureId = params.secureId;
+          let receivingAddress = params.receivingAddress;
+          let amount = params.amount;
 
-        if (
-          !isNaN(amount) &&
-          receivingAddress.length > 0 &&
-          secureId === "123abc"
-        ) {
-          return { success: true };
-        }
-        return { success: false, errorMessage: "Incorrect amount" };
-      });
+          if (
+            !isNaN(amount) &&
+            receivingAddress.length > 0 &&
+            secureId === "123abc"
+          ) {
+            return { success: true };
+          }
+          return { success: false, errorMessage: "Incorrect amount" };
+        },
+        { timing: 4000 }
+      );
       this.get("/account-overview", (schema, request) => {
         let email = request.queryParams.email;
         let secureId = request.queryParams.secureId;

@@ -34,6 +34,12 @@ export default function appReducer(state = initialState, action) {
         showLoading: action.payload,
       };
     }
+    case "modal/showInfo": {
+      return {
+        ...state,
+        showInfo: action.payload,
+      };
+    }
     case "navigation/onDashboard": {
       return {
         ...state,

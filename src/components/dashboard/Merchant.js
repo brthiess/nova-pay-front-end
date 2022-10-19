@@ -2,6 +2,7 @@ import React from "react";
 import styles from "../styles/Merchant.module.css";
 import { getMerchant } from "../../ajax/merchant";
 import { send } from "../../ajax/transfer";
+import store from "../../app/store";
 
 export default class Merchant extends React.Component {
   constructor() {
@@ -22,7 +23,9 @@ export default class Merchant extends React.Component {
   }
 
   async sendStellar(receivingAddresss, amount, memo) {
+    store.dispatch({ type: "modal/showLoading", payload: true });
     let sendResult = await send(receivingAddresss, amount, memo);
+    store.dispatch({ type: "modal/showLoading", payload: false });
     if (sendResult.data.success) {
       alert(
         "Sent " +
