@@ -8,7 +8,7 @@ function UserInfoSignedOut() {
 }
 
 function UserInfoSignedIn(props) {
-  return <p>{props.email}</p>;
+  return <Link to="/dashboard">{props.email}</Link>;
 }
 
 class GuestHeader extends React.Component {

@@ -27,17 +27,21 @@ export default class Merchant extends React.Component {
     let sendResult = await send(receivingAddresss, amount, memo);
     store.dispatch({ type: "modal/showLoading", payload: false });
     if (sendResult.data.success) {
-      alert(
+      const modalText =
         "Sent " +
-          amount +
-          "XLM to '" +
-          receivingAddresss +
-          "' with memo: " +
-          memo
-      );
+        amount +
+        "XLM to '" +
+        receivingAddresss +
+        "' with memo: " +
+        memo;
+      store.dispatch({ type: "modal/modalText", payload: modalText });
     } else {
-      alert("error: " + sendResult.data.errorMessage);
+      store.dispatch({
+        type: "modal/modalText",
+        payload: "Error: " + sendResult.data.errorMessage,
+      });
     }
+    store.dispatch({ type: "modal/showInfo", payload: true });
   }
 
   updateAmount(evt) {

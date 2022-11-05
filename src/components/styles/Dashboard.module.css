@@ -5,7 +5,7 @@
 .dashboardHeaderContainer {
   background: #122341;
 }
-.navigationListItem {
+.navigationListItem a {
   color: white;
 }
 .dashboardBannerContainer {

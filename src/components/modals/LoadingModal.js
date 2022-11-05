@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import styles from "./styles/LoadingModal.module.css";
+import styles from "../styles/LoadingModal.module.css";
 
 class LoadingModal extends React.Component {
   render() {

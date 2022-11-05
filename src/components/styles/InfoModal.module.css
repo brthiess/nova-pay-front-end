@@ -1,0 +1,32 @@
+.hidden {
+  display: none;
+}
+.infoModalWrapper {
+  position: fixed;
+  top: 40%;
+  left: calc(50% - 150px);
+  padding: 10px 30px;
+  width: 500px;
+  background: white;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  font-size: 20px;
+}
+.darkenedBackground {
+  background: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.modalButton {
+  display: block;
+  margin: 20px 0 0;
+  width: 100px;
+  color: white;
+  background-color: #159134;
+}

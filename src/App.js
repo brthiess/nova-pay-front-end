@@ -3,30 +3,30 @@ import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 import SignIn from "./components/SignIn";
 import Dashboard from "./components/dashboard/Dashboard";
-import LoadingModal from "./components/LoadingModal";
+import LoadingModal from "./components/modals/LoadingModal";
+import InfoModal from "./components/modals/InfoModal";
 import Documentation from "./components/documentation/Documentation";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import React from "react";
 import { isSignedIn, getEmail } from "./ajax/user";
 import store from "./app/store";
 
-
 export default class App extends React.Component {
   async componentDidMount() {
-    
     let isSignedInVar = await isSignedIn();
-    
+
     if (isSignedInVar) {
       store.dispatch({ type: "user/updateEmail", payload: getEmail() });
       store.dispatch({ type: "user/updateIsSignedIn", payload: true });
     }
   }
   render() {
-    
     return (
       <div className="app">
         <BrowserRouter>
-          <Header onDocs={window.location.pathname.indexOf("docs") > 0}></Header>
+          <Header
+            onDocs={window.location.pathname.indexOf("docs") > 0}
+          ></Header>
           <Switch>
             <Route exact path="/" component={Home}></Route>
             <Route exact path="/sign-in/" component={SignIn}></Route>
@@ -35,8 +35,9 @@ export default class App extends React.Component {
           </Switch>
           <Footer></Footer>
         </BrowserRouter>
-        
+
         <LoadingModal></LoadingModal>
+        <InfoModal></InfoModal>
       </div>
     );
   }

@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./styles/SignIn.module.css";
 import axios from "axios";
 import store from "../app/store";
-import { setSecureId, setEmail } from "../ajax/user";
+import { setSecureId, setEmail, getSecureId, getEmail } from "../ajax/user";
 
 export default class SignIn extends React.Component {
   constructor(props) {
@@ -39,36 +39,34 @@ export default class SignIn extends React.Component {
   };
 
   signIn = async () => {
-    store.dispatch({type:"modal/showLoading", payload: true});
+    store.dispatch({ type: "modal/showLoading", payload: true });
     let signInResult = await axios.post("/auth/sign-in", {
       email: this.state.email,
       password: this.state.password,
     });
-    store.dispatch({type:"modal/showLoading", payload: false});
+    store.dispatch({ type: "modal/showLoading", payload: false });
     var resultDto = signInResult.data;
     if (resultDto.success) {
       alert("Signed in!");
       setSecureId(resultDto.result.secureId);
       setEmail(resultDto.result.email);
-      this.props.history.push('/dashboard');
-    }
-    else {
+      this.props.history.push("/dashboard");
+    } else {
       alert("Incorrect password");
     }
   };
 
   createAccount = async () => {
-    store.dispatch({type:"modal/showLoading", payload: true});
+    store.dispatch({ type: "modal/showLoading", payload: true });
     let createAccountResult = await axios.post("/user", {
       email: this.state.email,
       password: this.state.password,
     });
-    store.dispatch({type:"modal/showLoading", payload: false});
+    store.dispatch({ type: "modal/showLoading", payload: false });
     if (createAccountResult.data.success) {
       store.dispatch({ type: "user/updateEmail", payload: this.state.email });
       alert("Account created!");
-    }
-    else {
+    } else {
       alert("Unable to create account");
     }
   };
@@ -169,7 +167,9 @@ export default class SignIn extends React.Component {
                 By creating an account you agree to our Terms & Privacy
               </div>
               <div className={styles.buttonContainer}>
-                <button className={styles.button} onClick={this.createAccount}>Sign Up</button>
+                <button className={styles.button} onClick={this.createAccount}>
+                  Sign Up
+                </button>
               </div>
             </div>
           </div>
